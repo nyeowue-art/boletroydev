@@ -39,6 +39,16 @@
                         <button onclick="showAppDetail('project-asistan')" class="w-full bg-gray-900 text-white py-3 rounded-xl font-semibold group-hover:bg-blue-600 transition">Detayları Gör</button>
                     </div>
                 </div>
+                <!-- Uygulama Kartı 2 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center text-white text-5xl">✅</div>
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold mb-2">Görev Takipçi</h2>
+                        <p class="text-gray-600 mb-6 text-sm line-clamp-2">Günlük görevlerinizi kolayca yönetin ve üretkenliğinizi artırın.</p>
+                        <button onclick="showAppDetail('gorev-takipci')" class="w-full bg-gray-900 text-white py-3 rounded-xl font-semibold group-hover:bg-green-600 transition">Detayları Gör</button>
+                    </div>
+                </div>
+                <!-- Yeni uygulama kartlarını buraya ekleyebilirsiniz -->
             </div>
         </section>
 
@@ -82,7 +92,18 @@
                 icon: '📱',
                 desc: 'Bu uygulama, karmaşık projelerinizi daha yönetilebilir hale getirmek için tasarlandı. Modern tasarımı ve hızıyla iş akışınızı optimize eder.',
                 features: ['Kullanıcı Dostu Arayüz', 'Çevrimdışı Çalışma Desteği', 'Bulut Senkronizasyonu'],
-                version: '1.0.2'
+                version: '1.0.2',
+                playStoreUrl: 'https://play.google.com/store',
+                appStoreUrl: 'https://www.apple.com/app-store/'
+            },
+            'gorev-takipci': { // Yeni uygulama ID'si
+                title: 'Görev Takipçi',
+                icon: '✅',
+                desc: 'Günlük görevlerinizi kolayca yönetmenizi ve tamamlamanızı sağlayan basit ve etkili bir araç. Odaklanmanıza yardımcı olur.',
+                features: ['Basit Arayüz', 'Hatırlatıcılar', 'Kategori Oluşturma'],
+                version: '1.0.2',
+                playStoreUrl: '#', // Link yoksa '#' bırakabilir veya satırı silebilirsin
+                appStoreUrl: '#'
             }
         };
 
@@ -105,6 +126,12 @@
                         <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
                             ${app.features.map(f => `<li class="flex items-center text-gray-700"><span class="text-green-500 mr-2">✓</span> ${f}</li>`).join('')}
                         </ul>
+                        
+                        <div class="flex flex-wrap gap-4 mb-8">
+                            ${app.playStoreUrl && app.playStoreUrl !== '#' ? `<a href="${app.playStoreUrl}" target="_blank" class="bg-black text-white px-6 py-3 rounded-xl font-bold flex items-center hover:scale-105 transition-transform"><span class="mr-2 text-xl">▶</span> Google Play</a>` : ''}
+                            ${app.appStoreUrl && app.appStoreUrl !== '#' ? `<a href="${app.appStoreUrl}" target="_blank" class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold flex items-center hover:scale-105 transition-transform"><span class="mr-2 text-xl">🍎</span> App Store</a>` : ''}
+                        </div>
+
                         <div class="text-sm text-gray-400 font-mono">Versiyon: ${app.version}</div>
                     </div>
                 </div>`;
