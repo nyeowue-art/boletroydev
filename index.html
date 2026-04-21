@@ -9,6 +9,8 @@
     <style>
         .view { display: none; }
         .view.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fadeIn { animation: fadeIn 0.4s ease-out forwards; }
     </style>
 </head>
 
@@ -32,40 +34,8 @@
         <!-- EKRAN 1: Uygulama Listesi (Home) -->
         <section id="home" class="view active">
             <h1 class="text-4xl font-extrabold mb-8 text-gray-900 dark:text-gray-100">Uygulamalarım</h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Uygulama Kartı 1 -->
-                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-xl transition-all duration-300 group">
-                    <div class="h-48 bg-blue-50 dark:bg-gray-700 flex items-center justify-center p-8">
-                        <img src="icons/proje-asistan.png" alt="Proje Asistanı" class="w-24 h-24 rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    </div>
-                    <div class="p-6">
-                        <h2 class="text-2xl font-bold mb-2">Proje Asistanı</h2>
-                        <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm line-clamp-2">İşlerinizi organize etmenize yardımcı olan profesyonel bir araç.</p>
-                        <button onclick="showAppDetail('project-asistan')" class="w-full bg-gray-900 text-white py-3 rounded-xl font-semibold group-hover:bg-blue-600 transition">Detayları Gör</button>
-                    </div>
-                </div>
-                <!-- Uygulama Kartı 2 -->
-                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-xl transition-all duration-300 group">
-                    <div class="h-48 bg-green-50 dark:bg-gray-700 flex items-center justify-center p-8">
-                        <img src="icons/gorev-takipci.png" alt="Görev Takipçi" class="w-24 h-24 rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    </div>
-                    <div class="p-6">
-                        <h2 class="text-2xl font-bold mb-2">Görev Takipçi</h2>
-                        <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm line-clamp-2">Günlük görevlerinizi kolayca yönetin ve üretkenliğinizi artırın.</p>
-                        <button onclick="showAppDetail('gorev-takipci')" class="w-full bg-gray-900 dark:bg-blue-700 text-white py-3 rounded-xl font-semibold group-hover:bg-green-600 transition">Detayları Gör</button>
-                    </div>
-                </div>
-                <!-- Uygulama Kartı 3 -->
-                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-xl transition-all duration-300 group">
-                    <div class="h-48 bg-purple-50 dark:bg-gray-700 flex items-center justify-center p-8">
-                        <img src="icons/butce-yoneticisi.png" alt="Bütçe Yöneticisi" class="w-24 h-24 rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    </div>
-                    <div class="p-6">
-                        <h2 class="text-2xl font-bold mb-2">Bütçe Yöneticisi</h2>
-                        <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm line-clamp-2">Gelir ve giderlerinizi takip ederek finansal hedeflerinize ulaşın.</p>
-                        <button onclick="showAppDetail('butce-yoneticisi')" class="w-full bg-gray-900 dark:bg-purple-600 text-white py-3 rounded-xl font-semibold hover:bg-purple-600 transition">Detayları Gör</button>
-                    </div>
-                </div>
+            <div id="apps-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Veriler apps.json'dan gelecek -->
             </div>
         </section>
 
@@ -96,39 +66,37 @@
     </footer>
 
     <script>
-        // Uygulama verileri
-        const apps = {
-            'project-asistan': {
-                title: 'Proje Asistanı',
-                icon: 'icons/proje-asistan.png',
-                desc: 'Bu uygulama, karmaşık projelerinizi daha yönetilebilir hale getirmek için tasarlandı. Modern tasarımı ve hızıyla iş akışınızı optimize eder.',
-                features: ['Kullanıcı Dostu Arayüz', 'Çevrimdışı Çalışma Desteği', 'Bulut Senkronizasyonu'],
-                version: '1.0.2',
-                playStoreUrl: 'https://play.google.com/store',
-                appStoreUrl: 'https://www.apple.com/app-store/',
-                privacy: 'Proje Asistanı, projelerinizi sadece cihazınızda saklar. Hiçbir kişisel veri reklam amaçlı kullanılmaz.'
-            },
-            'gorev-takipci': {
-                title: 'Görev Takipçi',
-                icon: 'icons/gorev-takipci.png',
-                desc: 'Günlük görevlerinizi kolayca yönetmenizi ve tamamlamanızı sağlayan basit ve etkili bir araç. Odaklanmanıza yardımcı olur.',
-                features: ['Basit Arayüz', 'Hatırlatıcılar', 'Kategori Oluşturma'],
-                version: '2.1.0',
-                playStoreUrl: '#',
-                appStoreUrl: '#',
-                privacy: 'Görev Takipçi uygulaması, görevlerinizi ve hatırlatıcılarınızı yerel veritabanında tutar. Verileriniz izniniz dışında paylaşılmaz.'
-            },
-            'butce-yoneticisi': {
-                title: 'Bütçe Yöneticisi',
-                icon: 'icons/butce-yoneticisi.png',
-                desc: 'Finansal özgürlüğünüzü kazanın. Gelir ve giderlerinizi kategorize edin, harcamalarınızı grafiklerle analiz edin.',
-                features: ['Grafik Analizleri', 'Excel Dışa Aktar', 'Çoklu Para Birimi'],
-                version: '1.5.4',
-                playStoreUrl: 'https://play.google.com/store',
-                appStoreUrl: '#',
-                privacy: 'Bütçe Yöneticisi, finansal verilerinizin hassasiyetinin farkındadır. Tüm veriler şifrelenmiş olarak cihazınızda tutulur.'
+        let apps = {};
+
+        async function loadApps() {
+            try {
+                const response = await fetch('apps.json');
+                apps = await response.json();
+                renderApps();
+            } catch (err) {
+                console.error("Veri yüklenemedi:", err);
             }
-        };
+        }
+
+        function renderApps() {
+            const grid = document.getElementById('apps-grid');
+            grid.innerHTML = Object.keys(apps).map(id => {
+                const app = apps[id];
+                const badgeColor = app.badge === 'Yeni' ? 'bg-blue-600' : 'bg-orange-600';
+                return `
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-xl transition-all duration-300 group relative animate-fadeIn">
+                    ${app.badge ? `<span class="absolute top-4 right-4 ${badgeColor} text-white text-[10px] uppercase px-2 py-1 rounded-lg font-black tracking-wider shadow-sm z-10">${app.badge}</span>` : ''}
+                    <div class="h-48 bg-gray-50 dark:bg-gray-700/50 flex items-center justify-center p-8">
+                        <img src="${app.icon}" alt="${app.title}" class="w-24 h-24 rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold mb-2">${app.title}</h2>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm line-clamp-2">${app.desc}</p>
+                        <button onclick="showAppDetail('${id}')" class="w-full bg-gray-900 dark:bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition">Detayları Gör</button>
+                    </div>
+                </div>`;
+            }).join('');
+        }
 
         function showView(viewId) {
             document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
@@ -202,7 +170,10 @@
         });
 
         // Sayfa yüklendiğinde temayı başlat
-        document.addEventListener('DOMContentLoaded', initTheme);
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            loadApps();
+        });
     </script>
 </body>
 

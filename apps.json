@@ -1,0 +1,33 @@
+{
+    "project-asistan": {
+        "title": "Proje Asistanı",
+        "icon": "icons/proje-asistan.png",
+        "desc": "İşlerinizi organize etmenize yardımcı olan profesyonel bir araç.",
+        "features": ["Kullanıcı Dostu Arayüz", "Çevrimdışı Çalışma Desteği", "Bulut Senkronizasyonu"],
+        "version": "1.0.2",
+        "playStoreUrl": "https://play.google.com/store",
+        "appStoreUrl": "https://www.apple.com/app-store/",
+        "privacy": "Proje Asistanı, projelerinizi sadece cihazınızda saklar. Hiçbir kişisel veri reklam amaçlı kullanılmaz.",
+        "badge": "Yeni"
+    },
+    "gorev-takipci": {
+        "title": "Görev Takipçi",
+        "icon": "icons/gorev-takipci.png",
+        "desc": "Günlük görevlerinizi kolayca yönetin ve üretkenliğinizi artırın.",
+        "features": ["Basit Arayüz", "Hatırlatıcılar", "Kategori Oluşturma"],
+        "version": "2.1.0",
+        "playStoreUrl": "#",
+        "appStoreUrl": "#",
+        "privacy": "Görev Takipçi uygulaması, görevlerinizi ve hatırlatıcılarınızı yerel veritabanında tutar.",
+        "badge": "Güncellendi"
+    },
+    "butce-yoneticisi": {
+        "title": "Bütçe Yöneticisi",
+        "icon": "icons/butce-yoneticisi.png",
+        "desc": "Gelir ve giderlerinizi takip ederek finansal hedeflerinize ulaşın.",
+        "features": ["Grafik Analizleri", "Excel Dışa Aktar", "Çoklu Para Birimi"],
+        "version": "1.5.4",
+        "privacy": "Bütçe Yöneticisi verilerinizi şifrelenmiş olarak saklar.",
+        "badge": null
+    }
+}
