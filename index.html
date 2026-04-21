@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
-
+<!-- Dark mode için 'dark' sınıfı buraya eklenecek -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +12,15 @@
     </style>
 </head>
 
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body class="bg-gray-50 text-gray-900 font-sans dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
     <!-- Navigasyon -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <nav class="bg-white dark:bg-gray-800 shadow-sm dark:shadow-lg sticky top-0 z-50 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
             <a href="#" onclick="showView('home')" class="text-2xl font-bold text-blue-600 tracking-tight">boletroydev</a>
-            <div class="space-x-6">
+            <div class="flex items-center space-x-6">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300">
+                    ☀️
+                </button>
                 <button onclick="showView('home')" class="hover:text-blue-600 font-medium transition">Uygulamalar</button>
                 <button onclick="showView('privacy')" class="hover:text-blue-600 font-medium transition">Gizlilik</button>
             </div>
@@ -28,27 +31,41 @@
         
         <!-- EKRAN 1: Uygulama Listesi (Home) -->
         <section id="home" class="view active">
-            <h1 class="text-4xl font-extrabold mb-8">Uygulamalarım</h1>
+            <h1 class="text-4xl font-extrabold mb-8 text-gray-900 dark:text-gray-100">Uygulamalarım</h1>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Uygulama Kartı 1 -->
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group">
-                    <div class="h-48 bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-5xl">📱</div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                    <div class="h-48 bg-blue-50 dark:bg-gray-700 flex items-center justify-center p-8">
+                        <img src="icons/proje-asistan.png" alt="Proje Asistanı" class="w-24 h-24 rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    </div>
                     <div class="p-6">
                         <h2 class="text-2xl font-bold mb-2">Proje Asistanı</h2>
-                        <p class="text-gray-600 mb-6 text-sm line-clamp-2">İşlerinizi organize etmenize yardımcı olan profesyonel bir araç.</p>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm line-clamp-2">İşlerinizi organize etmenize yardımcı olan profesyonel bir araç.</p>
                         <button onclick="showAppDetail('project-asistan')" class="w-full bg-gray-900 text-white py-3 rounded-xl font-semibold group-hover:bg-blue-600 transition">Detayları Gör</button>
                     </div>
                 </div>
                 <!-- Uygulama Kartı 2 -->
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group">
-                    <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center text-white text-5xl">✅</div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                    <div class="h-48 bg-green-50 dark:bg-gray-700 flex items-center justify-center p-8">
+                        <img src="icons/gorev-takipci.png" alt="Görev Takipçi" class="w-24 h-24 rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    </div>
                     <div class="p-6">
                         <h2 class="text-2xl font-bold mb-2">Görev Takipçi</h2>
-                        <p class="text-gray-600 mb-6 text-sm line-clamp-2">Günlük görevlerinizi kolayca yönetin ve üretkenliğinizi artırın.</p>
-                        <button onclick="showAppDetail('gorev-takipci')" class="w-full bg-gray-900 text-white py-3 rounded-xl font-semibold group-hover:bg-green-600 transition">Detayları Gör</button>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm line-clamp-2">Günlük görevlerinizi kolayca yönetin ve üretkenliğinizi artırın.</p>
+                        <button onclick="showAppDetail('gorev-takipci')" class="w-full bg-gray-900 dark:bg-blue-700 text-white py-3 rounded-xl font-semibold group-hover:bg-green-600 transition">Detayları Gör</button>
                     </div>
                 </div>
-                <!-- Yeni uygulama kartlarını buraya ekleyebilirsiniz -->
+                <!-- Uygulama Kartı 3 -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                    <div class="h-48 bg-purple-50 dark:bg-gray-700 flex items-center justify-center p-8">
+                        <img src="icons/butce-yoneticisi.png" alt="Bütçe Yöneticisi" class="w-24 h-24 rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold mb-2">Bütçe Yöneticisi</h2>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm line-clamp-2">Gelir ve giderlerinizi takip ederek finansal hedeflerinize ulaşın.</p>
+                        <button onclick="showAppDetail('butce-yoneticisi')" class="w-full bg-gray-900 dark:bg-purple-600 text-white py-3 rounded-xl font-semibold hover:bg-purple-600 transition">Detayları Gör</button>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -57,7 +74,7 @@
             <button onclick="showView('home')" class="mb-8 text-gray-500 hover:text-blue-600 flex items-center font-medium">
                 <span class="mr-2">←</span> Uygulamalara Geri Dön
             </button>
-            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100">
+            <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 dark:border-gray-700">
                 <div id="app-content">
                     <!-- İçerik JavaScript ile dolacak -->
                 </div>
@@ -66,22 +83,16 @@
 
         <!-- EKRAN 3: Gizlilik Politikası -->
         <section id="privacy" class="view">
-            <h1 class="text-4xl font-extrabold mb-8">Gizlilik Politikası</h1>
-            <div class="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-gray-100 max-w-3xl">
-                <article class="prose prose-blue">
-                    <p class="text-gray-600 mb-6">Son güncelleme: 21 Nisan 2024</p>
-                    <h3 class="text-xl font-bold mb-4">Genel Bakış</h3>
-                    <p class="mb-4"><strong>boletroydev</strong> olarak kullanıcılarımızın gizliliğine en üst düzeyde önem veriyoruz. Uygulamalarımız, işlevsellik için zorunlu olmayan hiçbir veriyi toplamaz.</p>
-                    <h3 class="text-xl font-bold mb-4">Veri Güvenliği</h3>
-                    <p>Uygulamalarımızda toplanan veriler (eğer varsa) yerel cihazınızda saklanır ve izniniz olmadan sunucularımıza aktarılmaz.</p>
-                </article>
+            <h1 class="text-4xl font-extrabold mb-8 text-gray-900 dark:text-gray-100">Gizlilik Politikası</h1>
+            <div id="privacy-content" class="space-y-8 max-w-3xl">
+                <!-- Dinamik olarak dolacak -->
             </div>
         </section>
 
     </main>
 
     <footer class="mt-20 py-10 border-t border-gray-100 text-center text-gray-400">
-        <p>© 2024 <span class="font-bold text-gray-700">boletroydev</span> | Tüm Hakları Saklıdır.</p>
+        <p>© 2024 <span class="font-bold text-gray-700 dark:text-gray-300">boletroydev</span> | Tüm Hakları Saklıdır.</p>
     </footer>
 
     <script>
@@ -89,27 +100,40 @@
         const apps = {
             'project-asistan': {
                 title: 'Proje Asistanı',
-                icon: '📱',
+                icon: 'icons/proje-asistan.png',
                 desc: 'Bu uygulama, karmaşık projelerinizi daha yönetilebilir hale getirmek için tasarlandı. Modern tasarımı ve hızıyla iş akışınızı optimize eder.',
                 features: ['Kullanıcı Dostu Arayüz', 'Çevrimdışı Çalışma Desteği', 'Bulut Senkronizasyonu'],
                 version: '1.0.2',
                 playStoreUrl: 'https://play.google.com/store',
-                appStoreUrl: 'https://www.apple.com/app-store/'
+                appStoreUrl: 'https://www.apple.com/app-store/',
+                privacy: 'Proje Asistanı, projelerinizi sadece cihazınızda saklar. Hiçbir kişisel veri reklam amaçlı kullanılmaz.'
             },
-            'gorev-takipci': { // Yeni uygulama ID'si
+            'gorev-takipci': {
                 title: 'Görev Takipçi',
-                icon: '✅',
+                icon: 'icons/gorev-takipci.png',
                 desc: 'Günlük görevlerinizi kolayca yönetmenizi ve tamamlamanızı sağlayan basit ve etkili bir araç. Odaklanmanıza yardımcı olur.',
                 features: ['Basit Arayüz', 'Hatırlatıcılar', 'Kategori Oluşturma'],
-                version: '1.0.2',
-                playStoreUrl: '#', // Link yoksa '#' bırakabilir veya satırı silebilirsin
-                appStoreUrl: '#'
+                version: '2.1.0',
+                playStoreUrl: '#',
+                appStoreUrl: '#',
+                privacy: 'Görev Takipçi uygulaması, görevlerinizi ve hatırlatıcılarınızı yerel veritabanında tutar. Verileriniz izniniz dışında paylaşılmaz.'
+            },
+            'butce-yoneticisi': {
+                title: 'Bütçe Yöneticisi',
+                icon: 'icons/butce-yoneticisi.png',
+                desc: 'Finansal özgürlüğünüzü kazanın. Gelir ve giderlerinizi kategorize edin, harcamalarınızı grafiklerle analiz edin.',
+                features: ['Grafik Analizleri', 'Excel Dışa Aktar', 'Çoklu Para Birimi'],
+                version: '1.5.4',
+                playStoreUrl: 'https://play.google.com/store',
+                appStoreUrl: '#',
+                privacy: 'Bütçe Yöneticisi, finansal verilerinizin hassasiyetinin farkındadır. Tüm veriler şifrelenmiş olarak cihazınızda tutulur.'
             }
         };
 
         function showView(viewId) {
             document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
             document.getElementById(viewId).classList.add('active');
+            if(viewId === 'privacy') renderPrivacy();
             window.scrollTo(0, 0);
         }
 
@@ -117,14 +141,16 @@
             const app = apps[appId];
             const content = document.getElementById('app-content');
             content.innerHTML = `
-                <div class="flex flex-col md:flex-row gap-10 items-start">
-                    <div class="w-32 h-32 bg-blue-500 rounded-3xl flex items-center justify-center text-5xl text-white shadow-lg shrink-0">${app.icon}</div>
+                <div class="flex flex-col md:flex-row gap-10 items-start animate-fadeIn">
+                    <div class="w-32 h-32 shrink-0">
+                        <img src="${app.icon}" class="w-full h-full rounded-3xl shadow-xl object-cover border-4 border-white dark:border-gray-700">
+                    </div>
                     <div class="flex-1">
                         <h2 class="text-4xl font-black mb-4">${app.title}</h2>
                         <p class="text-xl text-gray-600 mb-8 leading-relaxed">${app.desc}</p>
-                        <h4 class="text-lg font-bold mb-4">Öne Çıkan Özellikler</h4>
-                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
-                            ${app.features.map(f => `<li class="flex items-center text-gray-700"><span class="text-green-500 mr-2">✓</span> ${f}</li>`).join('')}
+                        <h4 class="text-lg font-bold mb-4 text-gray-900 dark:text-gray-100">Öne Çıkan Özellikler</h4>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8 text-gray-700 dark:text-gray-200">
+                            ${app.features.map(f => `<li class="flex items-center"><span class="text-green-500 mr-2">✓</span> ${f}</li>`).join('')}
                         </ul>
                         
                         <div class="flex flex-wrap gap-4 mb-8">
@@ -132,11 +158,51 @@
                             ${app.appStoreUrl && app.appStoreUrl !== '#' ? `<a href="${app.appStoreUrl}" target="_blank" class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold flex items-center hover:scale-105 transition-transform"><span class="mr-2 text-xl">🍎</span> App Store</a>` : ''}
                         </div>
 
-                        <div class="text-sm text-gray-400 font-mono">Versiyon: ${app.version}</div>
+                        <div class="text-sm text-gray-400 dark:text-gray-500 font-mono">Versiyon: ${app.version}</div>
                     </div>
                 </div>`;
             showView('detail');
         }
+
+        function renderPrivacy() {
+            const privacyContent = document.getElementById('privacy-content');
+            privacyContent.innerHTML = Object.values(apps).map(app => `
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="${app.icon}" class="w-10 h-10 rounded-lg">
+                        <h3 class="text-xl font-bold">${app.title} - Gizlilik</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">${app.privacy}</p>
+                </div>
+            `).join('');
+        }
+
+        // Dark mode JavaScript
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement; // <html> etiketini hedef alıyoruz
+
+        // Sayfa yüklendiğinde temayı kontrol et
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                htmlElement.classList.add('dark');
+                themeToggle.innerHTML = '🌙'; // Ay ikonu
+            } else {
+                htmlElement.classList.remove('dark');
+                themeToggle.innerHTML = '☀️'; // Güneş ikonu
+            }
+        }
+
+        // Tema değiştirme fonksiyonu
+        themeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            const currentTheme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', currentTheme);
+            themeToggle.innerHTML = currentTheme === 'dark' ? '🌙' : '☀️';
+        });
+
+        // Sayfa yüklendiğinde temayı başlat
+        document.addEventListener('DOMContentLoaded', initTheme);
     </script>
 </body>
 
