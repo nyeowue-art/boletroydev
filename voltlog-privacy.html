@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoltLog Gizlilik Politikası</title>
+    <meta name="description" content="VoltLog uygulaması için gizlilik politikası.">
+    <style>
+        :root { --bg:#eefcfb; --panel:#ffffff; --text:#1f2937; --muted:#5b6472; --line:rgba(31,41,55,.12); --accent:#0f766e; }
+        * { box-sizing: border-box; }
+        body { margin:0; font-family:"Segoe UI", Arial, sans-serif; background:linear-gradient(180deg,#f8fffe 0%,var(--bg) 100%); color:var(--text); }
+        .wrap { width:min(920px, calc(100% - 32px)); margin:0 auto; padding:32px 0 72px; }
+        .topbar,.panel { background:var(--panel); border:1px solid var(--line); border-radius:24px; box-shadow:0 18px 45px rgba(31,41,55,.08); }
+        .topbar { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:18px 22px; margin-bottom:22px; }
+        .back { display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; background:#e6fffb; color:var(--accent); text-decoration:none; font-weight:700; }
+        .panel { padding:28px; }
+        .hero { display:flex; gap:18px; align-items:center; margin-bottom:18px; }
+        .hero img { width:88px; height:88px; border-radius:24px; object-fit:cover; box-shadow:0 12px 30px rgba(31,41,55,.12); background:white; }
+        h1,h2 { letter-spacing:-0.03em; }
+        h1 { margin:0 0 8px; font-size:clamp(2rem,4vw,3rem); }
+        h2 { margin:0 0 10px; font-size:1.1rem; }
+        p,li { color:var(--muted); line-height:1.8; }
+        .meta,.url-box,.section { border:1px solid var(--line); border-radius:20px; background:#fcfffe; }
+        .meta,.url-box { padding:16px 18px; }
+        .meta { margin-bottom:20px; }
+        .section { margin-top:18px; padding:22px; }
+        .url-box { font-family:Consolas, monospace; word-break:break-word; margin-top:18px; }
+        ul { margin:0; padding-left:20px; }
+        @media (max-width:640px) { .topbar,.hero { flex-direction:column; align-items:flex-start; } .panel { padding:22px; } }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="topbar">
+            <strong>boletroydev</strong>
+            <a class="back" href="index.html">Ana siteye dön</a>
+        </div>
+        <div class="panel">
+            <div class="hero">
+                <img src="icons/voltlog-logo.svg" alt="VoltLog logosu">
+                <div>
+                    <h1>VoltLog Gizlilik Politikası</h1>
+                    <p>Son güncelleme: 21 Nisan 2026</p>
+                </div>
+            </div>
+            <div class="meta">
+                <p>VoltLog, kullanıcının sürüş geçmişini ve batarya ile ilgili uygulama içinde girdiği verileri sürüş deneyimini takip etmek amacıyla işler. Uygulama, kişisel verileri reklam satışı amacıyla üçüncü taraflara satmaz.</p>
+            </div>
+            <div class="section"><h2>1. Toplanan veriler</h2><ul><li>Kullanıcının eklediği sürüş kayıtları</li><li>Batarya seviyesi, süre, mesafe veya manuel not bilgileri</li><li>Uygulama tercihleri ve temel cihaz içi teknik kayıtlar</li></ul></div>
+            <div class="section"><h2>2. Toplanmayan veriler</h2><ul><li>Ödeme kartı bilgileri</li><li>Resmi kimlik numarası</li><li>Kişisel rehber veya mesaj içerikleri</li></ul></div>
+            <div class="section"><h2>3. Kullanım amaçları</h2><ul><li>Sürüş geçmişini göstermek</li><li>Batarya kullanım eğilimlerini özetlemek</li><li>Kullanıcı deneyimini iyileştirmek</li><li>Teknik sorunları analiz etmek</li></ul></div>
+            <div class="section"><h2>4. Üçüncü taraflarla paylaşım</h2><p>VoltLog içinde işlenen veriler reklam ağına satılmaz. Yasal zorunluluklar dışında veriler üçüncü taraflarla paylaşılmaz.</p></div>
+            <div class="section"><h2>5. Saklama süresi ve silme yaklaşımı</h2><p>Kayıtlar uygulama işlevlerini sürdürebilmek için gerekli süre boyunca saklanır. Kullanıcı verileri sildiğinde veya uygulamayı kaldırdığında bu kayıtlara erişim sona erer.</p></div>
+            <div class="section"><h2>6. Güvenlik önlemleri</h2><p>Veriler, platformun sunduğu güvenlik önlemleri ve uygulama içi makul koruma yöntemleri ile korunmaya çalışılır.</p></div>
+            <div class="section"><h2>7. Çocukların gizliliği</h2><p>VoltLog genel kullanıcı kitlesine yöneliktir ve çocuklara özel olarak tasarlanmamıştır.</p></div>
+            <div class="section"><h2>8. Kullanıcı hakları</h2><p>Kullanıcı kendi kayıtlarını görüntüleyebilir, düzenleyebilir ve silebilir. Politika ile ilgili talepler geliştirici iletişim kanalı üzerinden iletilebilir.</p></div>
+            <div class="section"><h2>Test bağlantıları</h2><p>Bu uygulama için henüz aktif bir test bağlantısı eklenmedi.</p></div>
+            <div class="section"><h2>9. Politika değişiklikleri</h2><p>Bu politika gerektiğinde güncellenebilir. Güncel sürüm her zaman bu sayfada yayımlanır.</p></div>
+            <div class="url-box">Bu sayfa bağlantısı: voltlog-privacy.html</div>
+        </div>
+    </div>
+</body>
+</html>
